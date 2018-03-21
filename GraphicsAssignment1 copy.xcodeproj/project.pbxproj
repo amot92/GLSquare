@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		ACB27D3F2030F1D2002FCB6A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACB27D3E2030F1D2002FCB6A /* main.cpp */; };
+		ACB27D472032517C002FCB6A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB27D462032517C002FCB6A /* OpenGL.framework */; };
+		ACB27D492032518D002FCB6A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB27D482032518D002FCB6A /* GLUT.framework */; };
+		ACB27D532032D7BA002FCB6A /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB27D522032D7BA002FCB6A /* libGLEW.2.1.0.dylib */; };
+		ACB27D542032D7CE002FCB6A /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB27D5020326C08002FCB6A /* libglfw.3.2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,12 @@
 /* Begin PBXFileReference section */
 		ACB27D3B2030F1D2002FCB6A /* GraphicsAssignment1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GraphicsAssignment1; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB27D3E2030F1D2002FCB6A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		ACB27D462032517C002FCB6A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		ACB27D482032518D002FCB6A /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		ACB27D4A203254BF002FCB6A /* Portfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Portfile; path = ../../../../../opt/local/var/macports/sources/rsync.macports.org/macports/release/tarballs/ports/graphics/glew/Portfile; sourceTree = "<group>"; };
+		ACB27D4E20326BFD002FCB6A /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
+		ACB27D5020326C08002FCB6A /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../libglfw.3.2.dylib; sourceTree = "<group>"; };
+		ACB27D522032D7BA002FCB6A /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../opt/local/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +42,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB27D542032D7CE002FCB6A /* libglfw.3.2.dylib in Frameworks */,
+				ACB27D532032D7BA002FCB6A /* libGLEW.2.1.0.dylib in Frameworks */,
+				ACB27D492032518D002FCB6A /* GLUT.framework in Frameworks */,
+				ACB27D472032517C002FCB6A /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +57,7 @@
 			children = (
 				ACB27D3D2030F1D2002FCB6A /* GraphicsAssignment1 */,
 				ACB27D3C2030F1D2002FCB6A /* Products */,
+				ACB27D452032517C002FCB6A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +75,19 @@
 				ACB27D3E2030F1D2002FCB6A /* main.cpp */,
 			);
 			path = GraphicsAssignment1;
+			sourceTree = "<group>";
+		};
+		ACB27D452032517C002FCB6A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACB27D522032D7BA002FCB6A /* libGLEW.2.1.0.dylib */,
+				ACB27D5020326C08002FCB6A /* libglfw.3.2.dylib */,
+				ACB27D4E20326BFD002FCB6A /* libGLEW.2.1.0.dylib */,
+				ACB27D4A203254BF002FCB6A /* Portfile */,
+				ACB27D482032518D002FCB6A /* GLUT.framework */,
+				ACB27D462032517C002FCB6A /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +261,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = /opt/local/lib/;
+				"OTHER_LDFLAGS[arch=*]" = "-lGLEW";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -241,6 +276,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
